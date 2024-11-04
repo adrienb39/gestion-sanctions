@@ -14,18 +14,6 @@ switch ($route) {
         $accueilControlleur = new \App\Controllers\AccueilController;
         $accueilControlleur->accueil();
         break;
-    case 'create-account':
-        $accueilControlleur = new \App\Controllers\CreateAccountController($entityManager);
-        $accueilControlleur->create();
-        break;
-    case 'login':
-        $loginControlleur = new \App\Controllers\LoginController($entityManager);
-        $loginControlleur->login();
-        break;
-    case 'logout':
-        $logoutControlleur = new \App\Controllers\LogoutController();
-        $logoutControlleur->logout();
-        break;
     default:
         echo "Page non trouvée";
         break;
