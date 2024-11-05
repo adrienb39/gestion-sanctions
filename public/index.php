@@ -14,6 +14,10 @@ switch ($route) {
         $accueilControlleur = new \App\Controllers\AccueilController;
         $accueilControlleur->accueil();
         break;
+    case 'accueil-aide':
+        $accueilControlleur = new \App\Controllers\AccueilController;
+        $accueilControlleur->accueil_aide();
+        break;
     case 'connexion':
         $accueilControlleur = new \App\Controllers\ConnexionController;
         $accueilControlleur->connexion();

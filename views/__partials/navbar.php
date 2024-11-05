@@ -16,7 +16,7 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse d-flex justify-content-center  " id="navbarNavDropdown">
+            <div class="collapse navbar-collapse d-flex-md justify-content-md-center" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/index.php?route=accueil">Accueil</a>
@@ -28,11 +28,15 @@
                         <a class="nav-link" href="/index.php?route=inscription">Créer un compte</a>
                     </li>
                 </ul>
+                <div class="d-block d-md-none">
+                    <p>test</p>
+                </div>
+            </div>
+            <div class="d-md-block d-none">
+                <p class="my-auto">Vous accéder en tant que visiteur</p>
             </div>
         </div>
     </nav>
-
-    <script src="../assets/js/bootstrap.min.js"></script>
 </body>
 
 </html>
