@@ -9,6 +9,15 @@
 </head>
 
 <body>
+    <footer class="bg-light text-center py-4 mt-5">
+        <p>&copy; 2024 Gestion des Sanctions - Tous droits réservés</p>
+        <p>
+            <a href="#">Mentions légales</a> |
+            <a href="#">Contact</a> |
+            <a href="#">Facebook</a> |
+            <a href="#">Twitter</a>
+        </p>
+    </footer>
 
     <script src="../assets/js/bootstrap.min.js"></script>
 </body>
