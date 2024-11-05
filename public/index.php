@@ -27,7 +27,7 @@ switch ($route) {
         $accueilControlleur->inscription();
         break;
     case 'mentions-legales':
-        $mentionsLegales = new \App\Controllers\MentionsLegales();
+        $mentionsLegales = new \App\Controllers\MentionsLegalesController();
         $mentionsLegales->mentionsLegales();
         break;
     default:
