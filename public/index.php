@@ -26,6 +26,10 @@ switch ($route) {
         $accueilControlleur = new \App\Controllers\InscriptionController;
         $accueilControlleur->inscription();
         break;
+    case 'mentions-legales':
+        $mentionsLegales = new \App\Controllers\MentionsLegalesController();
+        $mentionsLegales->mentionsLegales();
+        break;
     default:
         echo "Page non trouvée";
         break;

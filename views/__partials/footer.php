@@ -36,7 +36,7 @@
     <footer class="bg-light text-center py-4 mt-5">
         <p>&copy; 2024 Gestion des Sanctions - Tous droits réservés</p>
         <p>
-            <a href="#">Mentions légales</a> |
+            <a href="/index.php?route=mentions-legales">Mentions légales</a> |
             <a href="#">Contact</a> |
             <a href="#">Facebook</a> |
             <a href="#">Twitter</a>

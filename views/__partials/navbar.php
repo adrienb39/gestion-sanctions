@@ -29,7 +29,7 @@
                     </li>
                 </ul>
                 <div class="d-block d-md-none">
-                    <p>test</p>
+                    <p>Vous accéder en tant que visiteur</p>
                 </div>
             </div>
             <div class="d-md-block d-none">
