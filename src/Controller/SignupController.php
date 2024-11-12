@@ -1,18 +1,23 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controller;
 
 use App\UserStory\CreerCompte;
 use Doctrine\ORM\EntityManager;
 
-class InscriptionController {
+class SignupController extends AbstractController {
     private EntityManager $entityManager;
 
     public function __construct(EntityManager $entityManager) {
         $this->entityManager = $entityManager;
     }
 
+    public function index(): void {
+        $this->render('account/signup');
+    }
+
     public function create() {
+        $error = [];
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $nom = $_POST["nom_user"];
             $prenom = $_POST["prenom_user"];
@@ -25,11 +30,13 @@ class InscriptionController {
                 $user = $createAccount->execute($nom, $prenom, $email, $password, $confirmPassword);
                 session_start();
                 $_SESSION['success_message'] = "Compte créé avec succès !";
-                header("Location: /index.php?route=connexion");
+                $this->redirect("/login");
             } catch (\Exception $e) {
                 $error = $e->getMessage();
             }
         }
-        require __DIR__ ."/../../views/inscription/inscription.php";
+        $this->render('account/signup', [
+            'error' => $error
+        ]);
     }
 }
