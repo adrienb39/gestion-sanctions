@@ -23,8 +23,8 @@ switch ($route) {
         $accueilControlleur->connexion();
         break;
     case 'inscription':
-        $accueilControlleur = new \App\Controllers\InscriptionController;
-        $accueilControlleur->inscription();
+        $accueilControlleur = new \App\Controllers\InscriptionController($entityManager);
+        $accueilControlleur->create();
         break;
     case 'mentions-legales':
         $mentionsLegales = new \App\Controllers\MentionsLegalesController();
