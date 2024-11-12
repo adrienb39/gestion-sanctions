@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 /**
  * @var Doctrine\ORM\EntityManager $entityManager
@@ -7,30 +6,29 @@ session_start();
 $entityManager = require_once __DIR__.'/../config/bootstrap.php';
 require_once __DIR__.'/../vendor/autoload.php';
 
-$route = $_GET["route"] ?? 'accueil';
+// Récupération des routes
+$routes = require_once __DIR__ . '/../config/routes.php';
 
-switch ($route) {
-    case 'accueil':
-        $accueilControlleur = new \App\Controllers\AccueilController;
-        $accueilControlleur->accueil();
-        break;
-    case 'accueil-aide':
-        $accueilControlleur = new \App\Controllers\AccueilController;
-        $accueilControlleur->accueil_aide();
-        break;
-    case 'connexion':
-        $accueilControlleur = new \App\Controllers\ConnexionController;
-        $accueilControlleur->connexion();
-        break;
-    case 'inscription':
-        $accueilControlleur = new \App\Controllers\InscriptionController($entityManager);
-        $accueilControlleur->create();
-        break;
-    case 'mentions-legales':
-        $mentionsLegales = new \App\Controllers\MentionsLegalesController();
-        $mentionsLegales->mentionsLegales();
-        break;
-    default:
-        echo "Page non trouvée";
-        break;
+// Récupération de l'URL actuelle
+$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+
+// Recherche de la route correspondante
+if (!isset($routes[$uri])) {
+    $errorController = new \App\Controller\ErrorController();
+    $errorController->error404();
+    exit;
+}
+
+// Récupération du contrôleur et de l'action
+[$controllerName, $action] = $routes[$uri];
+$controllerClass = "App\\Controller\\{$controllerName}";
+
+try {
+    // Instanciation du contrôleur avec l'EntityManager injecté
+    $controller = new $controllerClass($entityManager);
+    $controller->$action();
+} catch (\Exception $e) {
+    error_log($e->getMessage());
+    $errorController = new \App\Controller\ErrorController();
+    $errorController->error404();
 }
