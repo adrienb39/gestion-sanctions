@@ -14,6 +14,12 @@
         <div class="row justify-content-center">
             <div class="col-12 col-md-6">
                 <h1>Se connecter</h1>
+                <?php
+                if (isset($_SESSION['success_message'])) {
+                    echo "<div class='alert alert-success'>" . $_SESSION['success_message'] . "</div>";
+                    unset($_SESSION['success_message']);
+                }
+                ?>
                 <form action="#" method="POST">
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>

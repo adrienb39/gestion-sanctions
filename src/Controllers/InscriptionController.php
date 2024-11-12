@@ -23,6 +23,8 @@ class InscriptionController {
             try {
                 $createAccount = new CreerCompte($this->entityManager);
                 $user = $createAccount->execute($nom, $prenom, $email, $password, $confirmPassword);
+                session_start();
+                $_SESSION['success_message'] = "Compte créé avec succès !";
                 header("Location: /index.php?route=connexion");
             } catch (\Exception $e) {
                 $error = $e->getMessage();
