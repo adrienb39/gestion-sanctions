@@ -18,6 +18,9 @@ class SignupController extends AbstractController {
 
     public function create() {
         $error = [];
+        $nom = '';
+        $prenom = '';
+        $email = '';
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $nom = $_POST["nom_user"];
             $prenom = $_POST["prenom_user"];
@@ -36,6 +39,9 @@ class SignupController extends AbstractController {
             }
         }
         $this->render('account/signup', [
+            'nom' => $nom,
+            'prenom' => $prenom,
+            'email' => $email,
             'error' => $error
         ]);
     }

@@ -5,15 +5,15 @@
                 <form action="#" method="POST" novalidate>
                     <div class="mb-3">
                         <label for="nom" class="form-label">Nom</label>
-                        <input type="text" class="form-control" id="nom" name="nom_user" required>
+                        <input type="text" class="form-control" id="nom" name="nom_user" value="<?= $nom; ?>" required>
                     </div>
                     <div class="mb-3">
                         <label for="prenom" class="form-label">Prénom</label>
-                        <input type="text" class="form-control" id="prenom" name="prenom_user" required>
+                        <input type="text" class="form-control" id="prenom" name="prenom_user" value="<?= $prenom; ?>" required>
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">Adresse e-mail</label>
-                        <input type="email" class="form-control" id="email" name="email_user" required>
+                        <input type="email" class="form-control" id="email" name="email_user" value="<?= $email; ?>" required>
                     </div>
                     <div class="mb-3">
                         <label for="password" class="form-label">Mot de passe</label>
