@@ -18,6 +18,7 @@
                 <div class="mb-3">
                     <label for="password" class="form-label">Mot de passe</label>
                     <input type="password" class="form-control" id="password" name="password_user" required>
+                    <div id="passwordHelp" class="form-text">Le mot de passe doit contenir au moins 8 caractères, avec des majuscules, des minuscules et des chiffres</div>
                 </div>
                 <div class="mb-3">
                     <label for="confirm_password" class="form-label">Confirmation du mot de passe</label>
