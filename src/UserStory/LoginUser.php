@@ -12,7 +12,7 @@ class LoginUser {
         $this->entityManager = $entityManager;
     }
 
-    public function execute(string $email, string $password): void {
+    public function execute(string $email, string $password): User {
         if (empty($email) || empty($password)) {
             throw new \Exception("Tous les champs sont obligatoires");
         }
@@ -22,6 +22,9 @@ class LoginUser {
         }
         session_start();
         $_SESSION['user_id'] = $user->getId();
-        $_SESSION['pseudo'] = $user->getPseudo();
+        $_SESSION['nom'] = $user->getNom();
+        $_SESSION['prenom'] = $user->getPrenom();
+
+        return $user;
     }
 }

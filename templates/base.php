@@ -21,12 +21,18 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/">Accueil</a>
                 </li>
+                <?php if (!isset($_SESSION['user_id'])): ?>
                 <li class="nav-item">
                     <a class="nav-link" href="/login">Connexion</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/signup">Créer un compte</a>
                 </li>
+                <?php else: ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Déconnexion</a>
+                </li>
+                <?php endif; ?>
             </ul>
             <div class="d-block d-md-none">
                 <p>Vous accéder en tant que visiteur</p>

@@ -1,6 +1,12 @@
 <div class="container mt-4">
     <div class="row justify-content-center">
         <div class="col-12 col-md-8">
+            <?php
+            if (isset($_SESSION['success_message'])) {
+                echo "<div class='alert alert-success'>" . $_SESSION['success_message'] . "</div>";
+                unset($_SESSION['success_message']);
+            }
+            ?>
             <h1 class="display-4">Bienvenue sur le site de gestion des sanctions du lycée Gaudperr</h1>
             <p class="lead">
                 Ce site a été conçu pour vous permettre de gérer et suivre vos sanctions au sein de notre établissement scolaire. Que vous soyez un élève, un parent ou un membre du personnel, vous y trouverez toutes les informations nécessaires à la gestion des sanctions disciplinaires.

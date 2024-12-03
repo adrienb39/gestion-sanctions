@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\UserStory\CreerCompte;
+use App\UserStory\LoginUser;
 use Doctrine\ORM\EntityManager;
 
 class UserController extends AbstractController {
@@ -44,5 +45,33 @@ class UserController extends AbstractController {
             'email' => $email,
             'error' => $error
         ]);
+    }
+
+    public function login() {
+        $error = [];
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $email = $_POST["email_user"];
+            $password = $_POST["password_user"];
+            try {
+                $loginUser = new LoginUser($this->entityManager);
+                $user = $loginUser->execute($email, $password);
+                session_start();
+                $_SESSION['success_message'] = "Vous êtes connecté avec succès !";
+                $this->redirect("/accueil");
+            } catch (\Exception $e) {
+                $error = $e->getMessage();
+            }
+        }
+        $this->render('account/login', [
+            'error' => $error
+        ]);
+    }
+
+    public function logout() {
+        session_start();
+        session_destroy();
+        $_SESSION['success_message'] = "Vous avez bien été déconnecté !";
+        $this->redirect("/");
+        exit;
     }
 }

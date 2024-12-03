@@ -3,6 +3,8 @@
 return [
     '/' => ['HomeController', 'index'],
     '/legal' => ['HomeController', 'legal'],
-    '/login' => ['LoginController', 'index'],
+    '/login' => ['UserController', 'login'],
     '/signup' => ['UserController', 'create'],
+    '/logout' => ['UserController', 'logout'],
+    '/accueil' => ['HomeController', 'accueil'],
 ];
