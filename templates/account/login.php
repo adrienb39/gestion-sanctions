@@ -8,7 +8,7 @@
                 unset($_SESSION['success_message']);
             }
             ?>
-            <form action="#" method="POST">
+            <form action="#" method="POST" novalidate>
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
                     <input type="email" class="form-control" id="email" name="email_user" required>
@@ -22,6 +22,9 @@
                 </div>
                 <button type="submit" class="btn btn-primary">Se connecter</button>
             </form>
+            <?php if (!empty($error)) { ?>
+                <p class="text-danger"><?= $error; ?></p>
+            <?php } ?>
         </div>
     </div>
 </div>

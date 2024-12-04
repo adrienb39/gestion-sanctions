@@ -57,7 +57,7 @@ class UserController extends AbstractController {
                 $user = $loginUser->execute($email, $password);
                 session_start();
                 $_SESSION['success_message'] = "Vous êtes connecté avec succès !";
-                $this->redirect("/accueil");
+                $this->redirect("/");
             } catch (\Exception $e) {
                 $error = $e->getMessage();
             }

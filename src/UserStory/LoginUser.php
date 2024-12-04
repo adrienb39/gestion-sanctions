@@ -18,7 +18,7 @@ class LoginUser {
         }
         $user = $this->entityManager->getRepository(User::class)->findOneBy(['email' => $email]);
         if (!$user || !password_verify($password, $user->getPassword())) {
-            throw new \Exception("Email ou mot de pass incorrect");
+            throw new \Exception("Email ou mot de passe incorrect");
         }
         session_start();
         $_SESSION['user_id'] = $user->getId();

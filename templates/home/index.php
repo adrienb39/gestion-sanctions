@@ -20,10 +20,12 @@
                 <li><strong>Demander une révision</strong> : Si vous estimez qu'une sanction est injustifiée, vous pouvez soumettre une demande de révision.</li>
                 <li><strong>Accéder à votre historique</strong> : Suivez l'évolution de votre situation disciplinaire au fil du temps.</li>
             </ul>
+            <?php if (!isset($_SESSION['user_id'])): ?>
             <div class="mt-4">
                 <a href="/login" class="btn btn-primary">Se connecter</a>
                 <a href="/signup" class="btn btn-secondary">Créer un compte</a>
             </div>
+            <?php endif; ?>
             <p class="mt-4">
                 Si vous avez besoin d'aide, vous pouvez consulter notre <a href="">section d'aide</a> ou nous contacter directement.
             </p>

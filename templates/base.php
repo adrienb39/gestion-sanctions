@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,13 +34,25 @@
                 </li>
                 <?php endif; ?>
             </ul>
+            <?php if (!isset($_SESSION['user_id'])): ?>
             <div class="d-block d-md-none">
                 <p>Vous accéder en tant que visiteur</p>
             </div>
+            <?php else: ?>
+            <div class="d-block d-md-none">
+                <p><?= $_SESSION['nom'] ?></p>
+            </div>
+            <?php endif; ?>
         </div>
-        <div class="d-md-block d-none">
-            <p class="my-auto">Vous accéder en tant que visiteur</p>
-        </div>
+        <?php if (!isset($_SESSION['user_id'])): ?>
+            <div class="d-md-block d-none">
+                <p>Vous accéder en tant que visiteur</p>
+            </div>
+        <?php else: ?>
+            <div class="d-md-block d-none">
+                <p><?= $_SESSION['nom'] ?></p>
+            </div>
+        <?php endif; ?>
     </div>
 </nav>
 
