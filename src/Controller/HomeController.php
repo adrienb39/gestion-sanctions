@@ -16,7 +16,6 @@ class HomeController extends AbstractController
 
     public function accueil(): void
     {
-        session_start();
         $this->render('home/accueil');
     }
 }

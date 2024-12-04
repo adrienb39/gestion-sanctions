@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <div class="container mt-4">
     <div class="row justify-content-center">
         <div class="col-12 col-md-6">
