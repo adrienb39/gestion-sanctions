@@ -40,7 +40,7 @@
             </div>
             <?php else: ?>
             <div class="d-block d-md-none">
-                <p><?= $_SESSION['nom'] ?></p>
+                <p><?= $_SESSION['nom'] ?> <?= $_SESSION['prenom'] ?></p>
             </div>
             <?php endif; ?>
         </div>
@@ -50,7 +50,7 @@
             </div>
         <?php else: ?>
             <div class="d-md-block d-none">
-                <p><?= $_SESSION['nom'] ?></p>
+                <p><?= $_SESSION['nom'] ?> <?= $_SESSION['prenom'] ?></p>
             </div>
         <?php endif; ?>
     </div>

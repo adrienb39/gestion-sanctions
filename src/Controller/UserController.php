@@ -64,7 +64,6 @@ class UserController extends AbstractController {
         }
         $this->render('account/login', [
             'error' => $error
-
         ]);
     }
 
