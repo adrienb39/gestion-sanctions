@@ -25,10 +25,21 @@ class CreatePromotion
             throw new \Exception("Tous les champs sont obligatoires");
         }
 
-        // Vérifier l'unicité de l'email
+        if (strlen($anneePromotion) < 4 || strlen($anneePromotion) > 4 && !preg_match('/[0-9]/', $anneePromotion)) {
+            throw new \Exception("L'année doit contenir 4 caractères et des chiffres");
+        }
+
+        $currentDate = new \DateTime();
+        $nowAnnee = $currentDate->format('Y');
+        if ($anneePromotion < $nowAnnee) {
+            throw new \Exception("L'année doit être égale ou supérieur à cette année");
+        }
+
+        // Vérifier l'unicité du libellé et de l'année
         $existLibellePromotion = $this->entityManager->getRepository(Promotion::class)->findOneBy(['libellePromotion' => $libellePromotion]);
-        if ($existLibellePromotion) {
-            throw new \Exception('Libellé de la promotion déjà existant');
+        $existAnneePromotion = $this->entityManager->getRepository(Promotion::class)->findOneBy(['anneePromotion' => $anneePromotion]);
+        if ($existLibellePromotion && $existAnneePromotion) {
+            throw new \Exception('La promotion est déjà existant');
         }
 
         // Créer une instance de l'entité User
