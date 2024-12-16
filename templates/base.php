@@ -30,6 +30,9 @@
                 </li>
                 <?php else: ?>
                 <li class="nav-item">
+                    <a class="nav-link" href="/logout">Création de promotion</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="/logout">Déconnexion</a>
                 </li>
                 <?php endif; ?>
