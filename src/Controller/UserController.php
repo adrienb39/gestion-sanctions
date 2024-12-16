@@ -62,6 +62,7 @@ class UserController extends AbstractController {
                 $error = $e->getMessage();
             }
         }
+        session_start();
         $this->render('account/login', [
             'error' => $error
         ]);

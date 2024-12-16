@@ -31,6 +31,11 @@ class PromotionController extends AbstractController {
             }
         }
         session_start();
+        if (!isset($_SESSION['user_id'])) {
+            session_start();
+            $_SESSION['success_message'] = "Vous devez être connecté pour accéder à cette page !";
+            $this->redirect("/login");
+        }
         $this->render('promotion/add', [
             'libellePromotion' => $libellePromotion,
             'anneePromotion' => $anneePromotion,
