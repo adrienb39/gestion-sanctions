@@ -7,4 +7,5 @@ return [
     '/signup' => ['UserController', 'create'],
     '/logout' => ['UserController', 'logout'],
     '/accueil' => ['HomeController', 'accueil'],
+    '/promotion/add' => ['PromotionController', 'promotion_add'],
 ];

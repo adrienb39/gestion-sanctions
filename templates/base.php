@@ -30,7 +30,7 @@
                 </li>
                 <?php else: ?>
                 <li class="nav-item">
-                    <a class="nav-link" href="/logout">Création de promotion</a>
+                    <a class="nav-link" href="/promotion/add">Création de promotion</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/logout">Déconnexion</a>
