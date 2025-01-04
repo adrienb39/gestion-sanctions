@@ -6,6 +6,7 @@
     <div class="mb-3">
         <label for="promotion" class="form-label">Sélectionner une promotion</label>
         <select class="form-select" id="promotion" name="promotion_id" required>
+            <option>---- Choisir une promotion ----</option>
             <?php foreach ($promotions as $promotion): ?>
                 <option value="<?= $promotion->getIdPromotion(); ?>">
                     <?= $promotion->getLibellePromotion(); ?> - <?= $promotion->getAnneePromotion(); ?>
