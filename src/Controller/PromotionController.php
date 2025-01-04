@@ -51,13 +51,6 @@ class PromotionController extends AbstractController
 
     public function import_students()
     {
-        session_start();
-        // Vérification si l'utilisateur est connecté
-        if (!isset($_SESSION['user_id'])) {
-            $_SESSION['error_message'] = "Vous devez être connecté pour accéder à cette page !";
-            $this->redirect("/login");
-        }
-
         // Récupérer les promotions existantes
         $promotions = $this->entityManager->getRepository(Promotion::class)->findAll();
         $error = [];
