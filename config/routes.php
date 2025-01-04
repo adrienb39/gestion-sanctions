@@ -8,4 +8,5 @@ return [
     '/logout' => ['UserController', 'logout'],
     '/accueil' => ['HomeController', 'accueil'],
     '/promotion/add' => ['PromotionController', 'promotion_add'],
+    '/student/import' => ['PromotionController', 'import_students'],
 ];

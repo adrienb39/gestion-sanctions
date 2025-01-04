@@ -33,6 +33,9 @@
                     <a class="nav-link" href="/promotion/add">Création de promotion</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="/student/import">Importer des étudiants</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="/logout">Déconnexion</a>
                 </li>
                 <?php endif; ?>
