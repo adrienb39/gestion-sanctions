@@ -29,11 +29,11 @@ class CreatePromotion
             throw new \Exception("L'année doit contenir 4 caractères et des chiffres");
         }
 
-        $currentDate = new \DateTime();
-        $nowAnnee = $currentDate->format('Y');
-        if ($anneePromotion < $nowAnnee) {
-            throw new \Exception("L'année doit être égale ou supérieur à cette année");
-        }
+        // $currentDate = new \DateTime();
+        // $nowAnnee = $currentDate->format('Y');
+        // if ($anneePromotion < $nowAnnee) {
+        //     throw new \Exception("L'année doit être égale ou supérieur à cette année");
+        // }
 
         // Vérifier l'unicité du libellé et de l'année
         $existLibellePromotion = $this->entityManager->getRepository(Promotion::class)->findOneBy(['libellePromotion' => $libellePromotion]);
