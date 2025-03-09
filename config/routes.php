@@ -9,4 +9,5 @@ return [
     '/accueil' => ['HomeController', 'accueil'],
     '/promotion/add' => ['PromotionController', 'promotion_add'],
     '/student/import' => ['PromotionController', 'import_students'],
+    '/sanction/add' => ['SanctionController', 'sanction_add'],
 ];

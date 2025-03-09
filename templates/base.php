@@ -36,6 +36,9 @@
                     <a class="nav-link" href="/student/import">Importer des étudiants</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="/sanction/add">Créer une sanction</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="/logout">Déconnexion</a>
                 </li>
                 <?php endif; ?>
