@@ -18,6 +18,13 @@ class SanctionController extends AbstractController
 
     public function sanction_add()
     {
+        session_start();
+        if (!isset($_SESSION['user_id'])) {
+            session_start();
+            $_SESSION['success_message'] = "Vous devez être connecté pour accéder à cette page !";
+            $this->redirect("/login");
+        }
+        
         $error = [];
         $students = $this->entityManager->getRepository(Student::class)->findAll();
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -35,13 +42,6 @@ class SanctionController extends AbstractController
             } catch (\Exception $e) {
                 $error = $e->getMessage();
             }
-        }
-
-        session_start();
-        if (!isset($_SESSION['user_id'])) {
-            session_start();
-            $_SESSION['success_message'] = "Vous devez être connecté pour accéder à cette page !";
-            $this->redirect("/login");
         }
 
         $this->render('sanction/add', [
