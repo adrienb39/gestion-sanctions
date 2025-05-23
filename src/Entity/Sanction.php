@@ -33,6 +33,10 @@ class Sanction
     #[ORM\Column(name: 'date_creation', type: 'datetime')]
     private \DateTime $dateCreation;
 
+    #[ORM\ManyToOne(targetEntity: 'App\Entity\Enseignant')]
+    #[ORM\JoinColumn(name: 'id_enseignant', referencedColumnName: 'id_enseignant')]
+    private Enseignant $enseignant;
+
     // Getters and Setters
     public function getIdSanction(): int
     {
@@ -102,5 +106,15 @@ class Sanction
     public function setDateCreation(\DateTime $dateCreation): void
     {
         $this->dateCreation = $dateCreation;
+    }
+
+    public function getEnseignant(): Enseignant
+    {
+        return $this->enseignant;
+    }
+
+    public function setEnseignant(Enseignant $enseignant): void
+    {
+        $this->enseignant = $enseignant;
     }
 }
