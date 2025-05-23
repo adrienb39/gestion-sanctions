@@ -5,6 +5,7 @@ namespace App\UserStory;
 use App\Entity\Sanction;
 use App\Entity\Student;
 use App\Entity\User;
+use App\Entity\Enseignant;
 use Doctrine\ORM\EntityManager;
 
 class CreateSanction
@@ -16,9 +17,9 @@ class CreateSanction
         $this->entityManager = $entityManager;
     }
 
-    public function execute(int $studentId, string $motif, string $description, \DateTime $dateIncident, int $userId): Sanction
+    public function execute(int $studentId, string $motif, string $description, \DateTime $dateIncident, int $userId, Enseignant | null $enseignant): Sanction
     {
-        if (empty($motif) || empty($description)) {
+        if (empty($motif) || empty($description) || empty($enseignant)) {
             throw new \Exception("Tous les champs sont obligatoires.");
         }
 
@@ -36,6 +37,7 @@ class CreateSanction
         $sanction->setDescription($description);
         $sanction->setDateIncident($dateIncident);
         $sanction->setDateCreation(new \DateTime());
+        $sanction->setEnseignant($enseignant);
 
         $this->entityManager->persist($sanction);
         $this->entityManager->flush();
